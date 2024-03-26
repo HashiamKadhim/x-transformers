@@ -916,7 +916,7 @@ class Attention(nn.Module):
             masks.append(~input_mask)
 
         if exists(attn_mask):
-            assert 2 <= attn_mask.ndim <= 4, 'attention mask must have greater than 2 dimensions but less than or equal to 4'
+            assert 2 <= attn_mask.ndim <= 4, 'attention mask must have greater than or equal to 2 dimensions but less than or equal to 4'
             if attn_mask.ndim == 2:
                 attn_mask = rearrange(attn_mask, 'i j -> 1 1 i j')
             elif attn_mask.ndim == 3:
